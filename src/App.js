@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+// import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import {Container,AppBar, Typography, Grow, Grid} from '@mui/material';
+import memories from './images/memories.png'
+import Posts from './components/Posts/Posts';
+import Form from './components/Form/Form';
+const App = () => {
+    return (
+        <Container>
+            <AppBar position='static' color='inherit'>
+                <Typography variant='h2' align='center'>Memories</Typography>
+                <img src={memories} alt="memories" width="40"  />
+            </AppBar>
+            <Grow in>
+                <Container>
+                    <Grid container justify="space-between" alignItem="stretch" spacing="">
+                        <Grid item xs={12} sm={7}>
+                            <Posts />
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                                <Form />
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Grow>
+        
+        </Container>
+    );
+};
 
 export default App;
