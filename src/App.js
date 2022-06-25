@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import {Container,AppBar, Typography, Grow, Grid} from '@mui/material';
 import memories from './images/memories.png'
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
+import { getPosts } from '.actions/posts';
+import { useDispatch } from 'react-redux';
+import { getPosts } from '../../server/controllers/posts';
 const App = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [])
     return (
         <Container>
             <AppBar position='static' color='inherit'>
